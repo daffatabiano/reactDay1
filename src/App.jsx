@@ -1,27 +1,30 @@
-import Navbar from './components/Navbar';
-import Banner from './components/Banner';
-import Footer from './components/Footer';
+import {useState} from "react";
+import Sidebar from './components/Sidebar'
 
 const App = () => {
-  const name = 'Daffa Tabiano';
-  const isSingle = false ;
+  const [showSidebar, setShowSidebar] = useState(false);
 
-  const renderStatus = (status) => {
-    if (status) {
-      return <p>saya sudah menikah</p>;
-  }return <p>saya belum menikah</p>;
-}
-return (
-  <div>
-    <Navbar />
-    <Banner />
-    <Footer />
-    {/* <h1>hello react, nama saya {name}</h1>
-    {isSingle ? <p> saya sudah menikah</p> : <p> saya belum menikah</p>}
-    {renderStatus(isSingle)} */}
+  const handleSidebar = () => {
+    setShowSidebar (!showSidebar)
+  }
 
-  </div>
-)
+  return (
+    <div>
+
+    <button onClick={handleSidebar}>|||</button>
+      {/* <button onClick ={handleSidebar}>|||</button>
+      {showSidebar ? <div>
+      <p>Home</p>
+      <p>About</p>
+      <p>Contact</p>
+    </div> : null}
+     */}
+
+     {showSidebar && (
+      <Sidebar/>
+      )}
+    </div>
+  )
 }
 
 export default App;
